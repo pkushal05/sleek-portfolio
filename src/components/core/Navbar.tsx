@@ -18,7 +18,6 @@ const Navbar = () => {
 
   useGSAP(
     () => {
-      // Initial hidden state
       gsap.set(navRef.current, { right: "-50%" });
 
       tl.current = gsap
@@ -54,8 +53,8 @@ const Navbar = () => {
 
 
   return (
-    <header className="relative">
-      <nav className="max-w-2xl lg:max-w-4xl mx-auto h-16 flex items-center justify-between px-7 pt-5 rounded-b-xl backdrop-blur-2xl">
+    <header className="relative z-30">
+      <nav className="fixed inset-x-0 max-w-2xl lg:max-w-3xl mx-auto h-16 flex items-center justify-between px-7 pt-5 rounded-b-xl backdrop-blur-2xl">
         <Logo />
 
         <ul className="hidden lg:flex space-x-4 items-center">
