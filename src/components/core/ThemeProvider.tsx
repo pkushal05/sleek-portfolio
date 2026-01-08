@@ -7,15 +7,12 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     if (saved) {
       return saved;
     }
-    // Optional: Check system preference
-    // return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     return "light";
   });
 
   useEffect(() => {
-    // Only update the DOM class, don't call setTheme
     document.documentElement.classList.toggle("dark", theme === "dark");
-  }, [theme]); // Run whenever theme changes
+  }, [theme]); 
 
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
