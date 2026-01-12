@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { CgMenuRight } from "react-icons/cg";
 import { IoMdClose } from "react-icons/io";
 import ThemeToggle from "./ThemeToggle";
-import { Button } from "@/components/ui/button";
 import Logo from "./Logo";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -14,18 +13,16 @@ const Navbar = () => {
 
   const navRef = useRef<HTMLDivElement>(null);
   const tl = useRef<gsap.core.Timeline | null>(null);
-  const { toggleTheme } = useTheme();
+  const { theme ,toggleTheme } = useTheme();
 
   useGSAP(
     () => {
-      gsap.set(navRef.current, { right: "-50%" });
-
       tl.current = gsap
         .timeline({ paused: true })
         .to(navRef.current, {
           right: "0%",
-          duration: 0.5,
-          ease: "power2.inOut",
+          duration: 0.3,
+          borderRadius: "0px",
         })
         .from(
           ".nav-links",
@@ -33,14 +30,13 @@ const Navbar = () => {
             x: 20,
             opacity: 0,
             stagger: 0.1,
-            duration: 0.3,
-            ease: "power2.inOut",
+            duration: 0.2,
           },
-          "-=0.1"
-        );
-    },
-    { scope: navRef }
-  );
+        )
+        .from(".close-menu", {
+          opacity: 0,
+        })
+    },[]  );
 
   useEffect(() => {
     if (!tl.current) return;
@@ -50,7 +46,6 @@ const Navbar = () => {
       tl.current.reverse();
     }
   }, [isOpen]);
-
 
   return (
     <header className="relative z-30">
@@ -71,7 +66,7 @@ const Navbar = () => {
 
         <button
           onClick={() => setIsOpen(true)}
-          className="lg:hidden cursor-pointer"
+          className={`lg:hidden cursor-pointer`}
           aria-label="Open menu"
         >
           <CgMenuRight size={20} />
@@ -81,19 +76,19 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div
         ref={navRef}
-        className="fixed top-0 right-0 h-screen w-1/2 bg-background/95 z-50 p-6 backdrop-blur-2xl border-l"
+        className="absolute mobile-menu top-0 right-[-50%] h-screen bg-transparent w-1/2 z-50 p-6 border rounded-[100%]"
         style={{ pointerEvents: isOpen ? "auto" : "none" }}
       >
         <button
           onClick={() => setIsOpen(false)}
-          className="absolute top-6 right-6 cursor-pointer"
+          className="close-menu absolute top-6 right-6 cursor-pointer"
           aria-label="Close menu"
         >
           <IoMdClose size={24} />
         </button>
 
-        <ul className="h-full flex flex-col gap-y-10 justify-center">
-          <li className="nav-links">
+        <div className="h-full flex flex-col gap-y-10 justify-center">
+          <h4 className="nav-links">
             <Link
               to="#projects"
               className="text-3xl"
@@ -101,8 +96,8 @@ const Navbar = () => {
             >
               Projects
             </Link>
-          </li>
-          <li className="nav-links">
+          </h4>
+          <h4 className="nav-links">
             <Link
               to="#about"
               className="text-3xl"
@@ -110,17 +105,23 @@ const Navbar = () => {
             >
               About
             </Link>
-          </li>
-          <li className="nav-links">
-            <Button onClick={() => {toggleTheme(); setIsOpen(false);}} variant="outline">Toggle Theme</Button>
-          </li>
-        </ul>
+          </h4>
+          <h4
+            className="nav-links text-3xl cursor-pointer"
+            onClick={() => {
+              toggleTheme();
+              setIsOpen(false);
+            }}
+          >
+            {theme === "light" ? "Dark Mode" : "Light Mode"}
+          </h4>
+        </div>
       </div>
 
       {/* Backdrop */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-40"
+          className="fixed inset-0 bg-transparent z-40"
           onClick={() => setIsOpen(false)}
         />
       )}

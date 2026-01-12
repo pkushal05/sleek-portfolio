@@ -1,9 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { useTheme }from "../../context/ThemeContext";
+import { useTheme } from "../../context/ThemeContext";
 
 const ThemeToggle = () => {
-
-    const {theme, toggleTheme} = useTheme();
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <Button onClick={toggleTheme} size="icon" variant="ghost">
@@ -48,6 +47,6 @@ const ThemeToggle = () => {
       )}
     </Button>
   );
-}
+};
 
-export default ThemeToggle
+export default ThemeToggle;

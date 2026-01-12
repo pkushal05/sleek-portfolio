@@ -151,8 +151,6 @@ body {
   }
 }
 
-
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -160,4 +158,8 @@ body {
   body {
     @apply bg-background text-foreground overflow-x-hidden;
   }
+}
+
+.mobile-menu {
+  backdrop-filter: blur(3px);
 }
