@@ -48,7 +48,7 @@ const Logo = () => {
   return (
     <div className="">
       <Link to={"/"} className="flex flex-col items-start">
-        <span className="text-lg md:text-2xl">Kushal.</span>
+        <span className="text-lg md:text-2xl font-semibold">Kushal.</span>
       </Link>
       <p
         ref={logoRef}

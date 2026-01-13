@@ -131,11 +131,7 @@
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 @media (prefers-color-scheme: light) {
@@ -160,6 +156,6 @@ body {
   }
 }
 
-.mobile-menu {
+/* .mobile-menu {
   backdrop-filter: blur(3px);
-}
+} */
