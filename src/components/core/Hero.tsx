@@ -13,7 +13,7 @@ import { ToggleGroup } from "@/components/ui/toggle-group";
 
 const Hero = () => {
   return (
-    <div className="max-w-2xl lg:max-w-3xl h-screen mx-auto px-7 pt-36 md:pt-44">
+    <div className="max-w-2xl lg:max-w-3xl mx-auto px-7 pt-36 md:pt-44">
       <div className="h-full w-full">
         <div className="flex flex-col gap-y-5">
           <div className="relative h-28 w-28 rounded-full">
@@ -23,7 +23,7 @@ const Hero = () => {
               <TooltipTrigger
                 delay={50}
                 render={
-                  <div className="absolute right-1 bottom-1 bg-green-400 rounded-full h-2.5 w-2.5">
+                  <div className="absolute right-1 bottom-1 bg-green-400 rounded-full h-2.5 w-2.5 cursor-pointer">
                     <div className="absolute inset-0 bg-green-400 animate-ping rounded-full"></div>
                   </div>
                 }
@@ -48,7 +48,12 @@ const Hero = () => {
                 variant="logo"
                 className="font-semibold"
                 render={
-                  <Link to={"#"}>
+                  <Link
+                    to={
+                      "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+                    }
+                    target="_blank"
+                  >
                     <svg
                       viewBox="0 0 256 256"
                       version="1.1"
@@ -97,7 +102,7 @@ const Hero = () => {
                 variant="logo"
                 className="font-semibold"
                 render={
-                  <Link to="#">
+                  <Link to="https://react.dev/" target="_blank">
                     <svg
                       viewBox="0 -14 256 256"
                       version="1.1"
@@ -134,7 +139,7 @@ const Hero = () => {
                 variant="logo"
                 className="font-semibold"
                 render={
-                  <Link to="#">
+                  <Link to="https://nodejs.org/en" target="_blank">
                     <svg
                       viewBox="0 0 32 32"
                       fill="none"
@@ -167,7 +172,7 @@ const Hero = () => {
                 variant="logo"
                 className="font-semibold"
                 render={
-                  <Link to="#">
+                  <Link to="https://www.mongodb.com/" target="_blank">
                     <svg
                       viewBox="0 0 32 32"
                       xmlns="http://www.w3.org/2000/svg"
@@ -269,7 +274,8 @@ const Hero = () => {
           <TooltipProvider>
             <ToggleGroup className="flex items-center gap-3">
               <Tooltip>
-                <TooltipTrigger delay={100}
+                <TooltipTrigger
+                  delay={100}
                   render={
                     <span className="size-6">
                       <a
@@ -291,7 +297,8 @@ const Hero = () => {
                 <TooltipPopup>Github</TooltipPopup>
               </Tooltip>
               <Tooltip>
-                <TooltipTrigger delay={100}
+                <TooltipTrigger
+                  delay={100}
                   render={
                     <span className="size-6">
                       <a
@@ -313,7 +320,8 @@ const Hero = () => {
                 <TooltipPopup>LinkedIn</TooltipPopup>
               </Tooltip>
               <Tooltip>
-                <TooltipTrigger delay={100}
+                <TooltipTrigger
+                  delay={100}
                   render={
                     <span className="size-6">
                       <a
@@ -334,7 +342,8 @@ const Hero = () => {
                 <TooltipPopup>Instagram</TooltipPopup>
               </Tooltip>
               <Tooltip>
-                <TooltipTrigger delay={100}
+                <TooltipTrigger
+                  delay={100}
                   render={
                     <span className="size-6">
                       <a href="mailto:patelkushal2363@gmail.com">
