@@ -1,4 +1,4 @@
-import  PROJECTS  from "@/constants/projectsData";
+import { PROJECTS } from "@/constants/projectsData";
 import ProjectCard from "@/components/core/ProjectCard";
 
 const Projects = () => {
@@ -9,7 +9,7 @@ const Projects = () => {
       </div>
       <div className="w-full mt-8 grid grid-cols-1 gap-8">
         {
-            PROJECTS.map((project, ) => {
+            PROJECTS.map((project) => {
                 return <ProjectCard {...project}/>
             })
         }
