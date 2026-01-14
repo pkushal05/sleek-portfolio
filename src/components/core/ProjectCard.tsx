@@ -64,7 +64,7 @@ const ProjectCard = ({
                     <img
                         src={image}
                         alt={title}
-                        className="translate-x-[15%] rounded-lg transition duration-300
+                        className="w-full h-full translate-x-[15%] rounded-lg transition duration-300
                      hover:shadow-[0_0_40px_rgba(99,102,241,0.6)]
                      hover:translate-x-[10%]"
                     />
@@ -87,7 +87,7 @@ const ProjectCard = ({
                                             tech.name == "express"
                                                 ? "dark:invert"
                                                 : ""
-                                        }`}
+                                        } hover:scale-110 transition-transform duration-200 cursor-pointer`}
                                     />
                                 </span>
                             ))}
