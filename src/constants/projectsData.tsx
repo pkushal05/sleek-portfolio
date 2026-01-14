@@ -5,6 +5,9 @@ import blogify from "@/assets/images/blogify.png";
 import express from "@/assets/images/express.svg";
 import mongodb from "@/assets/images/mongodb.svg";
 import testingautomation from "@/assets/images/testingautomation.png";
+import python from "@/assets/images/python.svg";
+import selenium from "@/assets/images/selenium.svg";
+
 export const PROJECTS = [
     {
         id: "blogify",
@@ -55,28 +58,12 @@ export const PROJECTS = [
             "A Selenium-based test automation project for a demo banking website, covering login, account creation, and transaction functionalities to ensure reliability and correctness.",
         image: testingautomation, // replace with actual image import
         techStack: [
-            { name: "selenium", icon: "/path/to/selenium-icon.svg" },
-            { name: "python", icon: "/path/to/python-icon.svg" },
-            { name: "pytest", icon: "/path/to/pytest-icon.svg" },
-            { name: "github", icon: "/path/to/github-icon.svg" },
-            { name: "tailwind", icon: tailwind }, // you can keep tailwind if UI part exists
+            { name: "python", icon: python },
+            { name: "selenium", icon: selenium },
         ],
         links: [
             {
-                href: "https://your-live-demo-link.com",
-                icon: (
-                    <svg
-                        className="h-6 w-6"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor"
-                        viewBox="0 0 256 256"
-                    >
-                        <path d="M128,24h0A104,104,0,1,0,232,128,104.12,104.12,0,0,0,128,24Zm87.62,96H175.79C174,83.49,159.94,57.67,148.41,42.4A88.19,88.19,0,0,1,215.63,120ZM96.23,136h63.54c-2.31,41.61-22.23,67.11-31.77,77C118.45,203.1,98.54,177.6,96.23,136Zm0-16C98.54,78.39,118.46,52.89,128,43c9.55,9.93,29.46,35.43,31.77,77Zm11.36-77.6C96.06,57.67,82,83.49,80.21,120H40.37A88.19,88.19,0,0,1,107.59,42.4ZM40.37,136H80.21c1.82,36.51,15.85,62.33,27.38,77.6A88.19,88.19,0,0,1,40.37,136Zm108,77.6c11.53-15.27,25.56-41.09,27.38-77.6h39.84A88.19,88.19,0,0,1,148.41,213.6Z"></path>
-                    </svg>
-                ),
-            },
-            {
-                href: "https://github.com/pkushal05/Guru99-Automation",
+                href: "https://github.com/pkushal05/Testing-Automation",
                 icon: (
                     <svg
                         className="h-6 w-6"

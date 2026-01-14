@@ -130,6 +130,10 @@
   --destructive-foreground: var(--color-red-400);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   overflow-x: hidden;
 }
