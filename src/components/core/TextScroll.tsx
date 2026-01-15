@@ -34,7 +34,7 @@ const TextScroll = () => {
 
 
     return (
-        <div
+        <section id="text-scroll-section"
             ref={containerRef}
             className="w-screen h-screen px-7 overflow-x-hidden select-none mask-[linear-gradient(to_right,transparent,black_30%,black_70%,transparent)]"
         >
@@ -56,7 +56,7 @@ const TextScroll = () => {
                     from concept to deployment
                 </h1>
             </div>
-        </div>
+        </section>
     );
 };
 

@@ -13,7 +13,7 @@ import { ToggleGroup } from "@/components/ui/toggle-group";
 
 const Hero = () => {
   return (
-      <div className="max-w-2xl lg:max-w-3xl mx-auto px-7 pt-36 md:pt-44">
+      <section id="hero-section" className="max-w-2xl lg:max-w-3xl mx-auto px-7 pt-36 md:pt-44">
           <div className="h-full w-full">
               <div className="flex flex-col gap-y-5">
                   <div className="relative h-28 w-28 rounded-full">
@@ -438,7 +438,7 @@ const Hero = () => {
                   </TooltipProvider>
               </div>
           </div>
-      </div>
+      </section>
   );
 };
 

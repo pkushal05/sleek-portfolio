@@ -11,9 +11,9 @@ import { Tooltip, TooltipTrigger, TooltipPopup } from "@/components/ui/tooltip";
 const ContactForm = () => {
     const { theme } = useTheme();
     return (
-        <div
-            id="contact"
-            className="max-w-2xl lg:max-w-3xl h-screen mx-auto px-7 scroll-mt-20"
+        <section
+            id="contact-section"
+            className="max-w-2xl lg:max-w-3xl mx-auto px-7 scroll-mt-20 border"
         >
             <div>
                 <div>
@@ -85,7 +85,7 @@ const ContactForm = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 
