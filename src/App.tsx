@@ -11,6 +11,9 @@ const App = () => {
                 <Hero />
                 <ProjectsSection />
                 <TextScroll />
+                <div className="h-screen w-full">
+
+                </div>
             </div>
         </>
     );
