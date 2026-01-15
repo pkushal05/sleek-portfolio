@@ -16,6 +16,25 @@ import java from "@/assets/images/java.svg";
 import redux from "@/assets/images/redux.svg";
 import cipher from "@/assets/images/cipher.png";
 
+type ProjectLink = {
+    href: string;
+    icon: React.ReactNode;
+};
+
+type TechStack = {
+    name: string;
+    icon: string;
+};
+
+export type ProjectCardProps = {
+    id: string;
+    title: string;
+    overview: string;
+    image: string;
+    links?: ProjectLink[];
+    techStack: TechStack[];
+};
+
 export const PROJECTS = [
     {
         id: "blogify",
@@ -99,6 +118,12 @@ export const PROJECTS = [
             { name: "C#", icon: csharp },
             { name: ".Net WinForms", icon: net },
             { name: "Spotify API", icon: spotify },
+        ],
+        features: [
+            "Spotify Web API integration with OAuth",
+            "Three search modes: Albums, Artists, Tracks",
+            "Modern Spotify-inspired dark theme",
+            "Grid-based layout with detail panels",
         ],
         links: [
             {

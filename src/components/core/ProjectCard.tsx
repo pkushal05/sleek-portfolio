@@ -7,25 +7,7 @@ import {
     TooltipPopup,
 } from "@/components/ui/tooltip";
 import { ToggleGroup } from "@/components/ui/toggle-group";
-
-type ProjectLink = {
-    href: string;
-    icon: React.ReactNode;
-};
-
-type TechStack = {
-    name: string;
-    icon: string;
-};
-
-type ProjectCardProps = {
-    id: string;
-    title: string;
-    overview: string;
-    image: string;
-    links?: ProjectLink[];
-    techStack: TechStack[];
-};
+import type { ProjectCardProps } from "@/constants/projectsData";
 
 const ProjectCard = ({
     id,
