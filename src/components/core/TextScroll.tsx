@@ -41,7 +41,7 @@ const TextScroll = () => {
             <div className="w-full h-full flex items-center justify-center">
                 <h1
                     ref={textRef}
-                    className="text-foreground text-9xl text-nowrap translate-x-[40%]"
+                    className="text-foreground text-5xl md:text-9xl text-nowrap translate-x-[40%]"
                 >
                     Building seamless{" "}
                     <span

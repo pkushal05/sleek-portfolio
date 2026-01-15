@@ -80,9 +80,9 @@ const ProjectCard = ({
                         Tech Stack:
                     </h3>
 
-                    <div className="mt-1 flex flex-wrap gap-2">
+                    <div className="mt-1 ">
                         <TooltipProvider>
-                            <ToggleGroup className="flex flex-wrap gap-3.5">
+                            <ToggleGroup className="flex flex-wrap gap-1.5 md:gap-3">
                                 {techStack.map((tech, i) => (
                                     <Tooltip key={i}>
                                         <TooltipTrigger

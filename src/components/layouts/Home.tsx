@@ -1,6 +1,7 @@
-import Hero from "@/components/core/Hero"
-import ProjectsSection from "@/components/core/ProjectsSection"
-import TextScroll from "@/components/core/TextScroll"
+import Hero from "@/components/core/Hero";
+import ProjectsSection from "@/components/core/ProjectsSection";
+import TextScroll from "@/components/core/TextScroll";
+import ContactForm from "@/components/core/ContactForm";
 
 const Home = () => {
   return (
@@ -8,6 +9,7 @@ const Home = () => {
         <Hero />
         <ProjectsSection />
         <TextScroll />
+        <ContactForm />
     </div>
   )
 }
