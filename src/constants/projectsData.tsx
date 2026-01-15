@@ -20,7 +20,7 @@ export const PROJECTS = [
     {
         id: "blogify",
         title: "Blogify",
-        description:
+        overview:
             "A clean and responsive blogging platform where users can create, manage, and share posts with a smooth reading and writing experience.",
         image: blogify,
         techStack: [
@@ -36,7 +36,7 @@ export const PROJECTS = [
                 href: "http://blogify-mxdu.onrender.com/",
                 icon: (
                     <svg
-                        className="h-6 w-6"
+                        className="h-5 w-5 md:h-6 md:w-6"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="currentColor"
                         viewBox="0 0 256 256"
@@ -49,7 +49,7 @@ export const PROJECTS = [
                 href: "https://github.com/pkushal05/Blogify",
                 icon: (
                     <svg
-                        className="h-6 w-6"
+                        className="h-5 w-5 md:h-6 md:w-6"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="currentColor"
                         viewBox="0 0 256 256"
@@ -64,7 +64,7 @@ export const PROJECTS = [
     {
         id: "guru99-automation",
         title: "Guru99 Test Automation",
-        description:
+        overview:
             "A Selenium-based test automation project for a demo banking website, covering login, account creation, and transaction functionalities to ensure reliability and correctness.",
         image: testingautomation,
         techStack: [
@@ -77,7 +77,7 @@ export const PROJECTS = [
                 href: "https://github.com/pkushal05/Testing-Automation",
                 icon: (
                     <svg
-                        className="h-6 w-6"
+                        className="h-5 w-5 md:h-6 md:w-6"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="currentColor"
                         viewBox="0 0 256 256"
@@ -92,7 +92,8 @@ export const PROJECTS = [
     {
         id: "spotify-clone",
         title: "Spotify Clone",
-        description: "",
+        overview:
+            "A Windows Forms desktop application integrating with Spotify Web API to browse albums, artists, and tracks. Features a modern dark-themed interface with three search modes, grid layouts, and detailed information panels showcasing album artwork, track listings, and artist profiles.",
         image: spotifyclone,
         techStack: [
             { name: "C#", icon: csharp },
@@ -104,7 +105,7 @@ export const PROJECTS = [
                 href: "https://github.com/pkushal05/Spotify_Clone",
                 icon: (
                     <svg
-                        className="h-6 w-6"
+                        className="h-5 w-5 md:h-6 md:w-6"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="currentColor"
                         viewBox="0 0 256 256"
@@ -118,8 +119,9 @@ export const PROJECTS = [
     },
     {
         id: "cipher-gui",
-        title: "Cipher GUI",
-        description: "",
+        title: "Cipher - GUI Application",
+        overview:
+            "A Java Swing desktop application implementing Substitution and Translation cipher algorithms with a user-friendly GUI. Features custom complexity keys, AODA-compliant accessibility design, and modular object-oriented architecture with robust input validation and error handling.",
         image: cipher,
         techStack: [{ name: "Java", icon: java }],
         links: [
@@ -127,7 +129,7 @@ export const PROJECTS = [
                 href: "https://github.com/pkushal05/Cipher-GUIApplication",
                 icon: (
                     <svg
-                        className="h-6 w-6"
+                        className="h-5 w-5 md:h-6 md:w-6"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="currentColor"
                         viewBox="0 0 256 256"

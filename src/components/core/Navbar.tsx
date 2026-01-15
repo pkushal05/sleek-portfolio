@@ -52,7 +52,7 @@ const Navbar = () => {
 
                 <div className="hidden lg:flex space-x-6 items-center">
                     <h4 className="text-2xl font-medium hover:underline hover:text-muted-foreground">
-                        <Link to="#projects">Projects</Link>
+                        <Link to="/projects">Projects</Link>
                     </h4>
                     <h4 className="text-2xl font-medium hover:underline hover:text-muted-foreground">
                         <Link to="/about">About</Link>

@@ -13,7 +13,7 @@ const ContactForm = () => {
     return (
         <section
             id="contact-section"
-            className="max-w-2xl lg:max-w-3xl mx-auto px-7 scroll-mt-20 border"
+            className="max-w-2xl lg:max-w-3xl mx-auto px-7 scroll-mt-20"
         >
             <div>
                 <div>

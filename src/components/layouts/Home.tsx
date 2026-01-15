@@ -2,7 +2,6 @@ import Hero from "@/components/core/Hero";
 import ProjectsSection from "@/components/core/ProjectsSection";
 import TextScroll from "@/components/core/TextScroll";
 import ContactForm from "@/components/core/ContactForm";
-import Footer from "@/components/core/Footer";
 
 const Home = () => {
   return (
@@ -11,7 +10,6 @@ const Home = () => {
         <ProjectsSection />
         <TextScroll />
         <ContactForm />
-        <Footer />
     </main>
   )
 }

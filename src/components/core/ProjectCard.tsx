@@ -21,7 +21,7 @@ type TechStack = {
 type ProjectCardProps = {
     id: string;
     title: string;
-    description: string;
+    overview: string;
     image: string;
     links?: ProjectLink[];
     techStack: TechStack[];
@@ -30,7 +30,7 @@ type ProjectCardProps = {
 const ProjectCard = ({
     id,
     title,
-    description,
+    overview,
     image,
     links = [],
     techStack,
@@ -40,7 +40,7 @@ const ProjectCard = ({
             {/* Header */}
             <div className="project-card-header w-full">
                 <div className="project-card-title w-full flex items-center justify-between">
-                    <h1 className="text-xl md:text-2xl font-bold">{title}</h1>
+                    <h1 className="text-base md:text-xl font-bold">{title}</h1>
 
                     <div className="flex gap-3">
                         {links.map((link, i) => (
@@ -57,26 +57,28 @@ const ProjectCard = ({
                     </div>
                 </div>
 
-                <p className="project-card-description line-clamp-2 text-lg font-medium text-muted-foreground mt-2 tracking-wide leading-tight">
-                    {description}
+                <p className="project-card-description line-clamp-2 text-sm md:text-base font-medium text-muted-foreground mt-2 tracking-wide leading-tight">
+                    {overview}
                 </p>
             </div>
 
             {/* Image */}
-            <div className="project-card-img mt-6 rounded-lg">
-                <img
-                    src={image}
-                    alt={title}
-                    className="w-full h-full translate-x-[15%] rounded-lg transition duration-300
+            <div className="project-card-img mt-4 rounded-lg">
+                <Link to={`/projects/${id}`}>
+                    <img
+                        src={image}
+                        alt={title}
+                        className="w-full h-full translate-x-[15%] rounded-lg transition duration-300
                      hover:shadow-[0_0_40px_rgba(99,102,241,0.6)]
                      hover:translate-x-[10%]"
-                />
+                    />
+                </Link>
             </div>
 
             {/* Footer */}
-            <div className="project-card-footer flex items-center justify-between mt-4">
+            <div className="project-card-footer flex items-center justify-between mt-3">
                 <div>
-                    <h3 className="text-lg text-muted-foreground font-medium">
+                    <h3 className="text-sm md:text-lg text-muted-foreground font-medium">
                         Tech Stack:
                     </h3>
 
@@ -92,7 +94,7 @@ const ProjectCard = ({
                                                     <img
                                                         src={tech.icon}
                                                         alt={tech.name}
-                                                        className={`h-6 w-6 object-cover ${
+                                                        className={`h-4 md:h-5 w-4 md:w-5 object-cover ${
                                                             tech.name ==
                                                             "Express"
                                                                 ? "dark:invert"
@@ -112,7 +114,7 @@ const ProjectCard = ({
                 <div>
                     <Link
                         to={`/projects/${id}`}
-                        className="text-muted-foreground font-medium flex items-center gap-1 hover:underline"
+                        className="text-sm md:text-lg text-muted-foreground font-medium flex items-center gap-1 hover:underline"
                     >
                         View Details <ArrowRight />
                     </Link>
