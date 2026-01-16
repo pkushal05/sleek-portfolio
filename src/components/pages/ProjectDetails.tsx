@@ -18,13 +18,31 @@ const ProjectDetails = () => {
                     <img src={project?.image} alt="" className="rounded-lg" />
                 </div>
                 <div className="mt-10">
-                    <h1 className="text-2xl font-semibold">Overview</h1>
-                    <p className="text-xl text-muted-foreground">{project?.overview}</p>
+                    <h1 className="text-2xl font-semibold mb-1">Overview</h1>
+                    <p className="text-xl text-muted-foreground">
+                        {project?.overview}
+                    </p>
                 </div>
-                <div>
-                  <div>
-                    <h1>Features</h1>
-                  </div>
+                <div className="mt-10 flex flex-col gap-10">
+                    <div>
+                        <h1 className="text-2xl font-semibold mb-1">
+                            Features
+                        </h1>
+                        <ul className="list-disc list-inside">
+                            {project?.features?.map((feature, index) => (
+                                <li
+                                    className="text-muted-foreground text-xl"
+                                    key={index}
+                                >
+                                    {feature}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div>
+                        <h1 className="text-2xl font-semibold">Challenges</h1>
+                        <p className="text-xl text-muted-foreground"></p>
+                    </div>
                 </div>
             </div>
         </main>

@@ -31,6 +31,8 @@ export type ProjectCardProps = {
     title: string;
     overview: string;
     image: string;
+    features?: string[];
+    tag: string;
     links?: ProjectLink[];
     techStack: TechStack[];
 };
@@ -49,6 +51,16 @@ export const PROJECTS = [
             { name: "MongoDB", icon: mongodb },
             { name: "Redux Toolkit", icon: redux },
             { name: "Tailwind CSS", icon: tailwind },
+        ],
+        features: [
+            "User authentication using Json Web Token (JWT)",
+            "Create, Read, Update and Delete blog posts",
+            "Author profiles with user-specific posts",
+            "Search and filter posts by keywords or tags",
+            "Fully responsive design for mobile & desktop",
+            "Modern UI with Tailwind CSS, DaisyUI, and smooth animations via Framer Motion",
+            "Image upload support using Multer + Cloudinary",
+            "RESTful API built with Express + MongoDB",
         ],
         links: [
             {
@@ -79,34 +91,6 @@ export const PROJECTS = [
             },
         ],
         tag: "Personal Project",
-    },
-    {
-        id: "guru99-automation",
-        title: "Guru99 Test Automation",
-        overview:
-            "A Selenium-based test automation project for a demo banking website, covering login, account creation, and transaction functionalities to ensure reliability and correctness.",
-        image: testingautomation,
-        techStack: [
-            { name: "Python", icon: python },
-            { name: "Selenium", icon: selenium },
-            { name: "PyTet", icon: pytest },
-        ],
-        links: [
-            {
-                href: "https://github.com/pkushal05/Testing-Automation",
-                icon: (
-                    <svg
-                        className="h-5 w-5 md:h-6 md:w-6"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor"
-                        viewBox="0 0 256 256"
-                    >
-                        <path d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z"></path>
-                    </svg>
-                ),
-            },
-        ],
-        tag: "Academic Project",
     },
     {
         id: "spotify-clone",
@@ -143,12 +127,55 @@ export const PROJECTS = [
         tag: "Academic Project",
     },
     {
+        id: "guru99-automation",
+        title: "Guru99 Test Automation",
+        overview:
+            "A Selenium-based test automation project for a demo banking website, covering login, account creation, and transaction functionalities to ensure reliability and correctness.",
+        image: testingautomation,
+        techStack: [
+            { name: "Python", icon: python },
+            { name: "Selenium", icon: selenium },
+            { name: "PyTet", icon: pytest },
+        ],
+        features: [
+            "Automate major features of the demo banking site",
+            "Validate input fields, button functionalities, and workflows",
+            "Execute 120+ test cases including both positive and negative scenarios",
+            "Ensure modular, reusable code with maintainable structure",
+            "Generate detailed test reports using PyTest",
+            "Implement robust error handling and logging",
+        ],
+        links: [
+            {
+                href: "https://github.com/pkushal05/Testing-Automation",
+                icon: (
+                    <svg
+                        className="h-5 w-5 md:h-6 md:w-6"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 256 256"
+                    >
+                        <path d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z"></path>
+                    </svg>
+                ),
+            },
+        ],
+        tag: "Academic Project",
+    },
+    {
         id: "cipher-gui",
         title: "Cipher - GUI Application",
         overview:
             "A Java Swing desktop application implementing Substitution and Translation cipher algorithms with a user-friendly GUI. Features custom complexity keys, AODA-compliant accessibility design, and modular object-oriented architecture with robust input validation and error handling.",
         image: cipher,
         techStack: [{ name: "Java", icon: java }],
+        features: [
+            "Java Swing GUI with AODA-compliant design",
+            "Substitution and Translation cipher algorithms",
+            "Custom complexity key generation for enhanced security",
+            "Modular OOP architecture for maintainability",
+            "Robust input validation and error handling",
+        ],
         links: [
             {
                 href: "https://github.com/pkushal05/Cipher-GUIApplication",

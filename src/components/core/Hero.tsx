@@ -1,4 +1,3 @@
-import react from "@/assets/react.svg";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ReceiptText, Send } from "lucide-react";
@@ -8,26 +7,26 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-
+import kushal from "@/assets/images/kushal.png";
 import { ToggleGroup } from "@/components/ui/toggle-group";
 
 const Hero = () => {
   return (
       <section id="hero-section" className="max-w-2xl lg:max-w-3xl mx-auto px-7 pt-36 md:pt-44">
           <div className="h-full w-full">
-              <div className="flex flex-col gap-y-5">
-                  <div className="relative h-28 w-28 rounded-full">
+              <div className="flex flex-col gap-y-3">
+                  <div className="relative h-28 w-28 rounded-full ">
                       <img
-                          src={react}
+                          src={kushal}
                           alt=""
-                          className="h-full w-full object-fill"
+                          className="h-full w-full object-cover rounded-full"
                       />
 
                       <Tooltip>
                           <TooltipTrigger
                               delay={50}
                               render={
-                                  <div className="absolute right-1 bottom-1 bg-green-400 rounded-full h-2.5 w-2.5 cursor-pointer">
+                                  <div className="absolute z-20 right-0 bottom-1 bg-green-400 rounded-full h-2.5 w-2.5 cursor-pointer">
                                       <div className="absolute inset-0 bg-green-400 animate-ping rounded-full"></div>
                                   </div>
                               }

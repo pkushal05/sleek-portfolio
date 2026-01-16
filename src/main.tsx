@@ -4,11 +4,13 @@ import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
 import { ThemeProvider } from '@/components/layouts/ThemeProvider.tsx'
+import ScrollToTop from "@/components/core/ScrollToTop.tsx"
 // import Stairs from '@/components/core/Stairs.tsx'
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
+      <ScrollToTop />
       <ThemeProvider>
         {/* <Stairs> */}
           <App />
