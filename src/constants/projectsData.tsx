@@ -32,6 +32,8 @@ export type ProjectCardProps = {
     overview: string;
     image: string;
     features?: string[];
+    challenges?: string[];
+    githubLink: string;
     tag: string;
     links?: ProjectLink[];
     techStack: TechStack[];
@@ -62,6 +64,15 @@ export const PROJECTS = [
             "Image upload support using Multer + Cloudinary",
             "RESTful API built with Express + MongoDB",
         ],
+        challenges: [
+            "Implementing secure JWT authentication with refresh token rotation to prevent token hijacking",
+            "Optimizing MongoDB queries with proper indexing to handle large datasets efficiently",
+            "Managing complex state across the application using Redux Toolkit with proper type safety",
+            "Handling image uploads with size validation and compression before storing in Cloudinary",
+            "Creating a responsive and accessible rich text editor for blog post creation",
+            "Implementing proper error boundaries and fallback UI for better user experience",
+        ],
+        githubLink: "https://github.com/pkushal05/Blogify",
         links: [
             {
                 href: "http://blogify-mxdu.onrender.com/",
@@ -109,6 +120,16 @@ export const PROJECTS = [
             "Modern Spotify-inspired dark theme",
             "Grid-based layout with detail panels",
         ],
+        challenges: [
+            "Implementing OAuth 2.0 flow for Spotify API authentication in a desktop application",
+            "Managing API rate limits and implementing proper request throttling mechanisms",
+            "Creating custom UI controls in WinForms to match Spotify's modern design language",
+            "Handling asynchronous API calls without blocking the UI thread in Windows Forms",
+            "Implementing efficient image caching to avoid repeated downloads of album artwork",
+            "Managing memory efficiently when loading large amounts of data in grid layouts",
+        ],
+        githubLink: "https://github.com/pkushal05/Spotify_Clone",
+
         links: [
             {
                 href: "https://github.com/pkushal05/Spotify_Clone",
@@ -128,7 +149,7 @@ export const PROJECTS = [
     },
     {
         id: "guru99-automation",
-        title: "Guru99 Test Automation",
+        title: "Testing Automation for Guru99 Banking Site",
         overview:
             "A Selenium-based test automation project for a demo banking website, covering login, account creation, and transaction functionalities to ensure reliability and correctness.",
         image: testingautomation,
@@ -145,6 +166,16 @@ export const PROJECTS = [
             "Generate detailed test reports using PyTest",
             "Implement robust error handling and logging",
         ],
+        challenges: [
+            "Handling dynamic elements and unpredictable page load times using explicit waits",
+            "Designing a maintainable Page Object Model architecture for 120+ test cases",
+            "Managing test data and configurations across different test environments",
+            "Implementing reliable element locators that work across browser updates",
+            "Creating comprehensive test coverage for both positive and negative scenarios",
+            "Generating detailed, actionable test reports with screenshots for failed tests",
+        ],
+        githubLink: "https://github.com/pkushal05/Testing-Automation",
+
         links: [
             {
                 href: "https://github.com/pkushal05/Testing-Automation",
@@ -176,6 +207,16 @@ export const PROJECTS = [
             "Modular OOP architecture for maintainability",
             "Robust input validation and error handling",
         ],
+        challenges: [
+            "Ensuring AODA compliance with proper keyboard navigation and screen reader support",
+            "Implementing secure key generation algorithms that produce truly random cipher keys",
+            "Designing an intuitive UI that makes cryptography concepts accessible to non-technical users",
+            "Validating and sanitizing user input to prevent edge cases in cipher operations",
+            "Creating comprehensive unit tests for cipher algorithms to ensure encryption/decryption accuracy",
+            "Balancing security best practices with usability in a desktop application context",
+        ],
+        githubLink: "https://github.com/pkushal05/Cipher-GUIApplication",
+
         links: [
             {
                 href: "https://github.com/pkushal05/Cipher-GUIApplication",

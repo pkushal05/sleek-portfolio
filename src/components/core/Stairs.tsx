@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useTheme } from "@/context/ThemeContext";
@@ -20,6 +20,9 @@ const Stairs = ({ children }: { children: React.ReactNode }) => {
 
     const { theme } = useTheme();
 
+    const [numStairs, setNumStairs] = useState(() =>
+        window.innerWidth >= 768 ? 6 : 3
+    );
     const stairParentRef = useRef<HTMLDivElement>(null);
     const stairRefs = useRef<Array<HTMLDivElement | null>>([]);
     const childRef = useRef<HTMLDivElement>(null);
@@ -27,6 +30,15 @@ const Stairs = ({ children }: { children: React.ReactNode }) => {
     const isFirstLoad = useRef(true);
     const hasAnimated = useRef(false);
     const location = useLocation();
+
+    useEffect(() => {
+        const handleResize = () => {
+            setNumStairs(window.innerWidth >= 768 ? 6 : 3);
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     useGSAP(() => {
         if (hasAnimated.current) return;
@@ -76,16 +88,15 @@ const Stairs = ({ children }: { children: React.ReactNode }) => {
 
         tl.set(targets, { yPercent: -100 });
 
-        tl.to(childRef.current, {
+        tl.set(childRef.current, {
             opacity: 0,
-            duration: 0.4,
         });
 
         tl.to(targets, {
             yPercent: 0,
             duration: 0.4,
             ease: "power4.out",
-            stagger: 0.015,
+            stagger: 0.02,
         });
 
         tl.to({}, { duration: 0.01 });
@@ -99,7 +110,7 @@ const Stairs = ({ children }: { children: React.ReactNode }) => {
             yPercent: 100,
             duration: 0.4,
             ease: "power4.out",
-            stagger: 0.015,
+            stagger: 0.02,
         });
 
         tl.set(stairParentRef.current, { display: "none", opacity: 0 });
@@ -119,13 +130,14 @@ const Stairs = ({ children }: { children: React.ReactNode }) => {
                 </div>
 
                 <div className="flex h-full w-full">
-                    {[...Array(6)].map((_, i) => (
+                    {[...Array(numStairs)].map((_, i) => (
                         <div
                             key={i}
                             ref={(el) => {
                                 stairRefs.current[i] = el || null;
                             }}
-                            className="stairs bg-foreground w-1/6 h-full"
+                            className="stairs bg-foreground h-full"
+                            style={{ width: `${100 / numStairs}%` }}
                         ></div>
                     ))}
                 </div>

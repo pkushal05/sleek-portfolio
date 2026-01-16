@@ -6,7 +6,7 @@ const Projects = () => {
         <main className="max-w-2xl md:max-w-3xl mx-auto px-7 min-h-screen bg-background text-foreground pt-20">
             <div className="w-full h-full flex flex-col gap-15">
                 <div className="w-full mt-15">
-                    <h1 className="text-center text-3xl md:text-5xl font-bold">
+                    <h1 className="text-center text-3xl md:text-5xl font-bold italic font-[DMSerifDisplay]">
                         Projects
                     </h1>
                     <p className="text-center text-muted-foreground text-xl leading-tight md:leading-loose">
