@@ -1,4 +1,4 @@
-import { PROJECTS } from "@/constants/projectsData";
+import { ALL_PROJECTS } from "@/constants/projectsData";
 import ProjectCard from "@/components/core/ProjectCard";
 import { Link } from "react-router-dom";
 
@@ -23,7 +23,7 @@ const ProjectsSection = () => {
                 </Link>
             </div>
             <div className="w-full mt-8 grid grid-cols-1 gap-8">
-                {PROJECTS.slice(0, 2).map((project, _) => {
+                {ALL_PROJECTS.slice(0, 2).map((project, _) => {
                     return <ProjectCard key={_} {...project} />;
                 })}
             </div>

@@ -1,11 +1,11 @@
-import { PROJECTS } from "@/constants/projectsData";
+import { ALL_PROJECTS } from "@/constants/projectsData";
 import { useParams } from "react-router-dom";
 import type { ProjectCardProps } from "@/constants/projectsData";
 import { Button } from "@/components/ui/button";
 
 const ProjectDetails = () => {
     const { projectId } = useParams<{ projectId: string }>();
-    const project = PROJECTS.find(
+    const project = ALL_PROJECTS.find(
         (proj: ProjectCardProps) => proj.id === projectId
     );
 

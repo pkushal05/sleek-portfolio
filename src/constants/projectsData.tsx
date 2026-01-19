@@ -39,7 +39,7 @@ export type ProjectCardProps = {
     techStack: TechStack[];
 };
 
-export const PROJECTS = [
+const PROJECTS = [
     {
         id: "blogify",
         title: "Blogify",
@@ -235,3 +235,10 @@ export const PROJECTS = [
         tag: "Academic Project",
     },
 ];
+
+
+export const PERSONAL_PROJECTS = PROJECTS.filter((project) => project.tag === "Personal Project");
+
+export const ACADEMIC_PROJECTS = PROJECTS.filter((project) => project.tag === "Academic Project");
+
+export const ALL_PROJECTS = PROJECTS;
