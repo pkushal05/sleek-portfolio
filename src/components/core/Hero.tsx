@@ -337,7 +337,7 @@ const Hero = () => {
                       variant="secondary"
                       className="py-3 px-2 md:py-4 md:px-3 md:text-lg text-sm"
                       render={
-                          <a href="#contact">
+                          <a href="#contact-section">
                               <Send /> Contact Me
                           </a>
                       }
