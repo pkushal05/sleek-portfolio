@@ -18,7 +18,7 @@ export const SKILLS_DATA = [
     { name: "React", icon: react },
     { name: "Node.js", icon: node },
     { name: "Tailwind", icon: tailwind },
-    { name: "Express.js", icon: express },
+    { name: "Express", icon: express },
     { name: "MongoDB", icon: mongodb },
     { name: "Python", icon: python },
     { name: "Selenium", icon: selenium },

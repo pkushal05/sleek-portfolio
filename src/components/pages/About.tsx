@@ -1,34 +1,11 @@
 import kushal2 from "@/assets/images/kushal2.jpg";
 import { useTheme } from "@/context/ThemeContext";
-import { SKILLS_DATA } from "@/constants/skillsData";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+import Marquee from "@/components/core/Marquee";
+import walmart from "@/assets/images/walmart.png";
+import dc from "@/assets/images/dc.svg";
 
 const About = () => {
     const { theme } = useTheme();
-
-    useGSAP(() => {
-        const wheel = (e: WheelEvent) => {
-            if (e.deltaY > 0) {
-                gsap.to(".marquee-wrapper", {
-                    transform: "translateX(-200%)",
-                    duration: 10,
-                    repeat: -1,
-                    ease: "none",
-                });
-            } else {
-                gsap.to(".marquee-wrapper", {
-                    transform: "translateX(0%)",
-                    duration: 10,
-                    repeat: -1,
-                    ease: "none",
-                });
-            }
-        };
-
-        window.addEventListener("wheel", wheel);
-        return () => window.removeEventListener("wheel", wheel);
-    }, []);
 
     return (
         <main className="max-w-2xl md:max-w-3xl mx-auto px-7 min-h-screen bg-background text-foreground pt-20">
@@ -112,66 +89,106 @@ const About = () => {
                     <h1 className="text-2xl lg:text-3xl font-bold text-foreground">
                         Skills
                     </h1>
-                    <div className="w-full marquee-wrapper flex gap-15 py-5 -translate-x-full">
-                        {SKILLS_DATA.map((skill, idx) => {
-                            return (
-                                <div key={idx} className="marquee shrink-0">
+                    <Marquee />
+                </div>
+                <div className="w-full">
+                    <h1 className="text-2xl lg:text-3xl font-bold text-foreground">
+                        Experience
+                    </h1>
+
+                    <div className="w-full mt-5">
+                        <div className="flex justify-between w-full">
+                            <div className="flex gap-2 md:gap-5">
+                                <div className="border bg-card p-2 md:p-3 rounded-xl overflow-hidden max-w-10 md:max-w-14 md:h-14 h-10">
                                     <img
-                                        src={skill.icon}
-                                        className="h-10 w-10 object-contain"
-                                        alt={skill.name}
+                                        src={walmart}
+                                        className="w-full h-full object-contain"
+                                        alt="Walmart"
                                     />
-                                    <h1 className="text-muted-foreground text-sm">
-                                        {skill.name}
-                                    </h1>
                                 </div>
-                            );
-                        })}
-                        {SKILLS_DATA.map((skill, idx) => {
-                            return (
-                                <div key={idx} className="marquee shrink-0">
-                                    <img
-                                        src={skill.icon}
-                                        className="h-10 w-10 object-contain"
-                                        alt={skill.name}
-                                    />
-                                    <h1 className="text-muted-foreground text-sm">
-                                        {skill.name}
+                                <div className="flex flex-col ">
+                                    <h1 className="text-sm md:text-xl">
+                                        Walmart
                                     </h1>
+                                    <p className="text-muted-foreground text-sm">
+                                        Whitby, ON
+                                    </p>
                                 </div>
-                            );
-                        })}
-                        {SKILLS_DATA.map((skill, idx) => {
-                            return (
-                                <div key={idx} className="marquee shrink-0">
-                                    <img
-                                        src={skill.icon}
-                                        className="h-10 w-10 object-contain"
-                                        alt={skill.name}
-                                    />
-                                    <h1 className="text-muted-foreground text-sm">
-                                        {skill.name}
-                                    </h1>
-                                </div>
-                            );
-                        })}
-                        {SKILLS_DATA.map((skill, idx) => {
-                            return (
-                                <div key={idx} className="marquee shrink-0">
-                                    <img
-                                        src={skill.icon}
-                                        className="h-10 w-10 object-contain"
-                                        alt={skill.name}
-                                    />
-                                    <h1 className="text-muted-foreground text-sm">
-                                        {skill.name}
-                                    </h1>
-                                </div>
-                            );
-                        })}
+                            </div>
+                            <p className="text-muted-foreground h-fit text-xs md:text-sm">
+                                Oct 2025 - present
+                            </p>
+                        </div>
+                        <div className="mt-3 w-full md:pl-18">
+                            <ul className="">
+                                <li className="list-disc text-muted-foreground text-sm tracking-wide leading-loose">
+                                    Stock and rotate dairy and frozen products
+                                    while following FIFO (first in, first out)
+                                    to ensure freshness.
+                                </li>
+                                <li className="list-disc text-muted-foreground text-sm tracking-wide leading-loose">
+                                    Monitor product temperatures and maintain
+                                    clean, organized coolers/freezers to meet
+                                    food safety standards.
+                                </li>
+                                <li className="list-disc text-muted-foreground text-sm tracking-wide leading-loose">
+                                    Assist customers with locating items and
+                                    provide friendly, efficient service on the
+                                    sales floor.
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div className="w-full h-screen"></div>
+                <div className="w-full">
+                    <h1 className="text-2xl lg:text-3xl font-bold text-foreground">
+                        Experience
+                    </h1>
+
+                    <div className="w-full mt-5">
+                        <div className="flex justify-between w-full">
+                            <div className="flex gap-2 md:gap-5">
+                                <div className="border bg-card p-2 md:p-3 rounded-xl overflow-hidden max-w-10 md:max-w-14 md:h-14 h-10">
+                                    <img
+                                        src={dc}
+                                        className="w-full h-full object-contain"
+                                        alt="Walmart"
+                                    />
+                                </div>
+                                <div className="flex flex-col ">
+                                    <h1 className="text-sm md:text-xl">
+                                        Computer Programming and Analysis
+                                    </h1>
+                                    <p className="text-muted-foreground text-sm">
+                                        Oshawa, ON
+                                    </p>
+                                </div>
+                            </div>
+                            <p className="text-muted-foreground h-fit text-xs md:text-sm">
+                                Sep 2024 - Apr 2027
+                            </p>
+                        </div>
+                        <div className="mt-3 w-full md:pl-18">
+                            <ul className="">
+                                <li className="list-disc text-muted-foreground text-sm tracking-wide leading-loose">
+                                    Stock and rotate dairy and frozen products
+                                    while following FIFO (first in, first out)
+                                    to ensure freshness.
+                                </li>
+                                <li className="list-disc text-muted-foreground text-sm tracking-wide leading-loose">
+                                    Monitor product temperatures and maintain
+                                    clean, organized coolers/freezers to meet
+                                    food safety standards.
+                                </li>
+                                <li className="list-disc text-muted-foreground text-sm tracking-wide leading-loose">
+                                    Assist customers with locating items and
+                                    provide friendly, efficient service on the
+                                    sales floor.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
     );
