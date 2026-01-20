@@ -7,10 +7,14 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import kushal from "@/assets/images/kushal.png";
+import kushal from "@/assets/images/kushal.jpg";
 import { ToggleGroup } from "@/components/ui/toggle-group";
+import { useTheme } from "@/context/ThemeContext";
 
 const Hero = () => {
+
+    const { theme } = useTheme();
+
   return (
       <section id="hero-section" className="max-w-2xl lg:max-w-3xl mx-auto px-7 pt-36 md:pt-44">
           <div className="h-full w-full">
@@ -19,7 +23,7 @@ const Hero = () => {
                       <img
                           src={kushal}
                           alt=""
-                          className="h-full w-full object-cover rounded-full"
+                          className={`h-full w-full object-cover rounded-full ${theme === 'dark' ? "saturate-0" : "" }`}
                       />
 
                       <Tooltip>

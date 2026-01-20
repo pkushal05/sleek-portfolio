@@ -22,9 +22,9 @@ const Footer = () => {
                     <div className="flex flex-col gap-5 items-center">
                         <h1>MAIN</h1>
                         <div className="flex flex-col gap-3 items-center">
-                            <a className="text-muted-foreground hover:underline" href="#hero-section">Home</a>
+                            <a className="text-muted-foreground hover:underline" href="/">Home</a>
                             <Link className="text-muted-foreground hover:underline" to="/projects">Projects</Link>
-                            <a className="text-muted-foreground hover:underline" href="#contact-section">Contact</a>
+                            <Link className="text-muted-foreground hover:underline scroll-mt-20" to="/about">About</Link>
                         </div>
                     </div>
                     <div className="flex flex-col gap-5 items-center">
