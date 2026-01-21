@@ -21,7 +21,7 @@ const Stairs = ({ children }: { children: React.ReactNode }) => {
     const { theme } = useTheme();
 
     const [numStairs, setNumStairs] = useState(() =>
-        window.innerWidth >= 768 ? 6 : 3
+        window.innerWidth >= 768 ? 5 : 3,
     );
     const stairParentRef = useRef<HTMLDivElement>(null);
     const stairRefs = useRef<Array<HTMLDivElement | null>>([]);
@@ -33,7 +33,7 @@ const Stairs = ({ children }: { children: React.ReactNode }) => {
 
     useEffect(() => {
         const handleResize = () => {
-            setNumStairs(window.innerWidth >= 768 ? 6 : 3);
+            setNumStairs(window.innerWidth >= 768 ? 5 : 3);
         };
 
         window.addEventListener("resize", handleResize);
@@ -43,10 +43,15 @@ const Stairs = ({ children }: { children: React.ReactNode }) => {
     useGSAP(() => {
         if (hasAnimated.current) return;
 
+        gsap.set(stairParentRef.current, {
+            scaleY: 1,
+            transformOrigin: "bottom",
+        });
+
         const tl = gsap.timeline({
             onComplete: () => {
-                isFirstLoad.current = false;
                 hasAnimated.current = true;
+                isFirstLoad.current = false;
             },
         });
 
@@ -58,10 +63,10 @@ const Stairs = ({ children }: { children: React.ReactNode }) => {
                 },
                 {
                     opacity: 1,
-                    duration: 0.2,
+                    duration: 0.3,
                     text: { value: greet, delimiter: " " },
-                    ease: "power2.inOut",
-                }
+                    ease: "linear",
+                },
             );
 
             tl.to(textRef.current, {
@@ -70,21 +75,30 @@ const Stairs = ({ children }: { children: React.ReactNode }) => {
             });
         });
 
-        tl.to(stairParentRef.current, { opacity: 0, duration: 0.5 });
-        tl.to(stairParentRef.current, { display: "none" });
+        tl.to(stairParentRef.current, {
+            scaleY: 0,
+            duration: 0.8,
+            ease: "power4.inOut",
+        });
+
+        tl.set(stairParentRef.current, { display: "none" });
     }, []);
 
     useGSAP(() => {
         if (!hasAnimated.current) return;
 
         const targets = stairRefs.current.filter(
-            (el): el is HTMLDivElement => !!el
+            (el): el is HTMLDivElement => !!el,
         );
         if (targets.length === 0) return;
 
         const tl = gsap.timeline();
 
-        tl.set(stairParentRef.current, { display: "block", opacity: 1 });
+        tl.set(stairParentRef.current, {
+            display: "block",
+            opacity: 1,
+            scaleY: 100,
+        });
 
         tl.set(targets, { yPercent: -100 });
 
@@ -94,25 +108,29 @@ const Stairs = ({ children }: { children: React.ReactNode }) => {
 
         tl.to(targets, {
             yPercent: 0,
-            duration: 0.4,
-            ease: "power4.out",
-            stagger: 0.02,
+            stagger: 0.05,
+            duration: 0.8,
+            ease: "expo.out",
         });
 
-        tl.to({}, { duration: 0.01 });
+        tl.to(
+            targets,
+            {
+                yPercent: 100,
+                stagger: 0.05,
+                duration: 0.8,
+                ease: "expo.out",
+            },
+            "-=0.05",
+        );
 
-        tl.to(childRef.current, {
-            opacity: 1,
-            duration: 0.2,
-        });
-
-        tl.to(targets, {
-            yPercent: 100,
-            duration: 0.4,
-            ease: "power4.out",
-            stagger: 0.02,
-        });
-
+        tl.to(
+            childRef.current,
+            {
+                opacity: 1,
+            },
+            "-=0.5",
+        );
         tl.set(stairParentRef.current, { display: "none", opacity: 0 });
     }, [theme, location.pathname]);
 
@@ -120,7 +138,7 @@ const Stairs = ({ children }: { children: React.ReactNode }) => {
         <>
             <div
                 ref={stairParentRef}
-                className="fixed w-screen h-screen left-0 top-0 bg-transparent z-999 overflow-hidden"
+                className="fixed w-screen h-screen left-0 top-0 bg-transparent z-999 overflow-hidden will-change-transform origin-bottom"
             >
                 <div className="absolute inset-0 flex items-center justify-center cursor-none pointer-events-none">
                     <h1

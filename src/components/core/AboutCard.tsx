@@ -31,7 +31,7 @@ const AboutCard = ({data}: AboutCardProps) => {
                       </div>
                   </div>
                   <p className="text-muted-foreground h-fit text-xs md:text-sm">
-                      Oct 2025 - present
+                      {data.period}
                   </p>
               </div>
               <div className="mt-3 w-full md:pl-18">

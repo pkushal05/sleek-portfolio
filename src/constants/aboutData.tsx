@@ -42,7 +42,7 @@ export type ExperienceDataType = {
 export const EXPERIENCE_DATA = [
     {
         title: "Experience",
-        role: "Walmart",
+        role: "Walmart Associate",
         place: "Whitby, ON",
         period: "Oct 2025 - Present",
         details: [
