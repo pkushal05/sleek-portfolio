@@ -55,7 +55,7 @@ const notFoundPage = !validPaths.some((path) =>
 
         gsap.set(stairParentRef.current, {
             scaleY: 1,
-            transformOrigin: "bottom",
+            transformOrigin: "top center",
         });
 
         const tl = gsap.timeline({
@@ -91,7 +91,7 @@ const notFoundPage = !validPaths.some((path) =>
             ease: "power4.inOut",
         });
 
-        tl.set(stairParentRef.current, { display: "none" });
+        tl.set(stairParentRef.current, { display: "none", transformOrigin: "bottom" });
     }, []);
 
     useGSAP(() => {
@@ -148,7 +148,7 @@ const notFoundPage = !validPaths.some((path) =>
         <>
             <div
                 ref={stairParentRef}
-                className="fixed w-screen h-screen left-0 top-0 bg-transparent z-999 overflow-hidden will-change-transform origin-bottom"
+                className="fixed w-screen h-screen left-0 top-0 bg-transparent z-999 overflow-hidden will-change-transform"
             >
                 <div className="absolute inset-0 flex items-center justify-center cursor-none pointer-events-none">
                     <h1
