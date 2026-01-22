@@ -3,7 +3,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useTheme } from "@/context/ThemeContext";
 import { TextPlugin } from "gsap/TextPlugin";
-import { useLocation } from "react-router-dom";
+import { useLocation, matchPath } from "react-router-dom";
 
 const Stairs = ({ children }: { children: React.ReactNode }) => {
     gsap.registerPlugin(useGSAP, TextPlugin);
@@ -31,6 +31,11 @@ const Stairs = ({ children }: { children: React.ReactNode }) => {
     const hasAnimated = useRef(false);
     const location = useLocation();
 
+    const validPaths = ["/", "/projects", "/about", "/movies", "/projects/:projectId"];
+
+const notFoundPage = !validPaths.some((path) =>
+    matchPath({ path, end: true }, location.pathname),
+);
     useEffect(() => {
         const handleResize = () => {
             setNumStairs(window.innerWidth >= 768 ? 5 : 3);
@@ -42,6 +47,11 @@ const Stairs = ({ children }: { children: React.ReactNode }) => {
 
     useGSAP(() => {
         if (hasAnimated.current) return;
+
+        if (notFoundPage) {
+            gsap.set(stairParentRef.current, { display: "none" });
+            return;
+        }
 
         gsap.set(stairParentRef.current, {
             scaleY: 1,
@@ -85,7 +95,7 @@ const Stairs = ({ children }: { children: React.ReactNode }) => {
     }, []);
 
     useGSAP(() => {
-        if (!hasAnimated.current) return;
+        if (!hasAnimated.current || notFoundPage) return;
 
         const targets = stairRefs.current.filter(
             (el): el is HTMLDivElement => !!el,
@@ -99,17 +109,17 @@ const Stairs = ({ children }: { children: React.ReactNode }) => {
             opacity: 1,
             scaleY: 100,
         });
-
-        tl.set(targets, { yPercent: -100 });
-
         tl.set(childRef.current, {
             opacity: 0,
         });
 
+        tl.set(targets, { yPercent: -100 });
+
+
         tl.to(targets, {
             yPercent: 0,
             stagger: 0.05,
-            duration: 0.8,
+            duration: 0.6,
             ease: "expo.out",
         });
 
@@ -118,7 +128,7 @@ const Stairs = ({ children }: { children: React.ReactNode }) => {
             {
                 yPercent: 100,
                 stagger: 0.05,
-                duration: 0.8,
+                duration: 0.6,
                 ease: "expo.out",
             },
             "-=0.05",

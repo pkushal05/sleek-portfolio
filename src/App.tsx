@@ -6,7 +6,7 @@ import Footer from "@/components/core/Footer";
 import Home from "@/components/layouts/Home";
 import Fallback from "@/components/core/Fallback";
 import ScrollToTop from "@/components/core/ScrollToTop.tsx";
-
+import NotFound from "@/components/pages/NotFound";
 
 const Projects = lazy(() => import("@/components/pages/Projects"));
 const About = lazy(() => import("@/components/pages/About"));
@@ -28,9 +28,10 @@ const App = () => {
                         element={<ProjectDetails />}
                     />
                     <Route path="/movies" element={<Movies />} />
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
             </Suspense>
-            <Footer />  
+            <Footer />
         </>
     );
 };
