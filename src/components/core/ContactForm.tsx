@@ -8,12 +8,12 @@ import { Map } from "@/components/ui/map";
 import { useTheme } from "@/hooks/useTheme";
 import { Tooltip, TooltipTrigger, TooltipPopup } from "@/components/ui/tooltip";
 
-const ContactForm = () => {
+const ContactForm = ({className}: {className?: string}) => {
     const { theme } = useTheme();
     return (
         <section
             id="contact-section"
-            className="max-w-2xl lg:max-w-3xl mx-auto px-7 scroll-mt-20"
+            className={`max-w-2xl lg:max-w-3xl mx-auto scroll-mt-20 ${className}`}
         >
             <div>
                 <div>

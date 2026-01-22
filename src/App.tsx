@@ -9,6 +9,7 @@ import Fallback from "@/components/core/Fallback";
 const Projects = lazy(() => import("@/components/pages/Projects"));
 const About = lazy(() => import("@/components/pages/About"));
 const ProjectDetails = lazy(() => import("@/components/pages/ProjectDetails"));
+const Movies = lazy(() => import("@/components/pages/Movies"));
 
 const App = () => {
     return (
@@ -23,6 +24,7 @@ const App = () => {
                         path="/projects/:projectId"
                         element={<ProjectDetails />}
                     />
+                    <Route path="/movies" element={<Movies />} />
                 </Routes>
             </Suspense>
             <Footer />

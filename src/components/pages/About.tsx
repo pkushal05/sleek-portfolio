@@ -2,9 +2,38 @@ import Marquee from "@/components/core/Marquee";
 import { EDUCATION_DATA, EXPERIENCE_DATA } from "@/constants/aboutData";
 import AboutCard from "@/components/core/AboutCard";
 import AboutIntroSection from "@/components/core/AboutIntroSection";
+import ContactForm from "@/components/core/ContactForm";
+import { useEffect, useState } from "react";
+
+type QuoteData = {
+    content: string;
+    author: string;
+};
 
 const About = () => {
+    const url = "https://api.quotable.io/random?tags=motivational";
 
+    const [quote, setQuote] = useState<QuoteData | null>(null);
+
+    useEffect(() => {
+        const fetchQuote = async () => {
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                if (!response.ok) {
+                    throw new Error(data.message || "Failed to fetch quote");
+                }
+                const quote: QuoteData = {
+                    content: data.content,
+                    author: data.author,
+                };
+                setQuote(quote);
+            } catch (error) {
+                console.error("Error fetching quote:", error);
+            }
+        };
+        fetchQuote();
+    }, []);
     return (
         <main className="max-w-2xl md:max-w-3xl mx-auto px-7 min-h-screen bg-background text-foreground pt-20">
             <div className="w-full h-full flex flex-col gap-15">
@@ -30,6 +59,21 @@ const About = () => {
                 {EDUCATION_DATA.map((exp, idx) => (
                     <AboutCard key={idx} data={exp} />
                 ))}
+                <div className="w-full">
+                    <ContactForm />
+                </div>
+                {quote && (
+                    <div className="w-full mt-3">
+                        <div className="bg-card max-w-md border-2 mx-auto py-5 px-4 rounded-2xl shadow-2xl">
+                            <blockquote className="">
+                                &ldquo;{quote.content}&rdquo;{" "}
+                                <footer className="text-right">
+                                    &mdash; {quote.author}
+                                </footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                )}
             </div>
         </main>
     );

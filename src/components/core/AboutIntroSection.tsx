@@ -1,5 +1,6 @@
 import kushal2 from "@/assets/images/kushal2.jpg";
 import { useTheme } from "@/context/ThemeContext";
+import { Link } from "react-router-dom";
 
 const AboutIntroSection = () => {
 
@@ -46,12 +47,12 @@ const AboutIntroSection = () => {
               <p className="mt-4 text-base md:text-lg">
                   Apart from coding, I love watching movies and going to gym.
                   Check out my{" "}
-                  <a
-                      href="#"
+                  <Link
+                      to="/movies"
                       className="text-primary hover:underline font-semibold"
                   >
-                      favourite
-                  </a>{" "}
+                      Favourite
+                  </Link>{" "}
                   movies of all time.
               </p>
 

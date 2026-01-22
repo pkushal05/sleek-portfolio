@@ -17,7 +17,7 @@ const ProjectsSection = () => {
                 </div>
                 <Link
                     className="text-lg text-muted-foreground hover:underline"
-                    to="/"
+                    to="/projects"
                 >
                     View All
                 </Link>
