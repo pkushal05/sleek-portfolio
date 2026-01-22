@@ -1,20 +1,25 @@
 // import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
-import './index.css'
-import App from './App.tsx'
-import { ThemeProvider } from '@/components/layouts/ThemeProvider.tsx'
-import ScrollToTop from "@/components/core/ScrollToTop.tsx"
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import "./index.css";
+import App from "./App.tsx";
+import { ThemeProvider } from "@/components/layouts/ThemeProvider.tsx";
+import ScrollToTop from "@/components/core/ScrollToTop.tsx";
+import { AnchoredToastProvider, ToastProvider } from "@/components/ui/toast";
 // import Stairs from '@/components/core/Stairs.tsx'
 
 createRoot(document.getElementById("root")!).render(
-  // <StrictMode>
+    // <StrictMode>
     <BrowserRouter>
-      <ScrollToTop />
-      <ThemeProvider>
-        {/* <Stairs> */}
-          <App />
-        {/* </Stairs> */}
-      </ThemeProvider>
-    </BrowserRouter>
+        <ScrollToTop />
+        <ToastProvider>
+            <AnchoredToastProvider>
+                <ThemeProvider>
+                    {/* <Stairs> */}
+                    <App />
+                    {/* </Stairs> */}
+                </ThemeProvider>
+            </AnchoredToastProvider>
+        </ToastProvider>
+    </BrowserRouter>,
 );

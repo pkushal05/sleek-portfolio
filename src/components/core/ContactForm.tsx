@@ -7,9 +7,76 @@ import { Button } from "@/components/ui/button";
 import { Map } from "@/components/ui/map";
 import { useTheme } from "@/hooks/useTheme";
 import { Tooltip, TooltipTrigger, TooltipPopup } from "@/components/ui/tooltip";
+import { useSendEmail } from "@/hooks/sendEmail";
+import {  useState } from "react";
+import type { TemplateParams } from "@/hooks/sendEmail";
+import { toastManager } from "@/components/ui/toast";
 
-const ContactForm = ({className}: {className?: string}) => {
+const ContactForm = ({ className }: { className?: string }) => {
     const { theme } = useTheme();
+
+    const { sendEmail, loading, error, success } = useSendEmail();
+    const [formData, setFormData] = useState<TemplateParams>({
+        name: "",
+        email: "",
+        message: "",
+    });
+
+    const handleChange = (
+        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    ) => {
+        const { name, value } = e.target;
+
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+        console.log(formData)
+    };
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        if (formData.name.trim().length < 2) {
+            alert("Name must be at least 2 characters");
+            return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formData.email)) {
+            alert("Invalid email format");
+            return;
+        }
+
+        if (formData.message.trim().length < 10) {
+            alert("Message must be at least 10 characters");
+            return;
+        }
+        await sendEmail(formData);
+        if (error) {
+            toastManager.add({
+                type: "error",
+                description: error,
+                title: "Error",
+                timeout: 3000,
+            });
+        }
+
+        if (success) {
+            toastManager.add({
+                type: "success",
+                description: "Your message has been sent successfully!",
+                title: "Success",
+                timeout: 3000,
+            });
+            console.log(success)
+            setFormData({
+                name: "",
+                email: "",
+                message: "",
+            });
+        }
+    };
+
     return (
         <section
             id="contact-section"
@@ -25,7 +92,10 @@ const ContactForm = ({className}: {className?: string}) => {
                     </p>
                 </div>
                 <div className="w-full flex gap-3">
-                    <Form className="w-full md:w-1/2 mt-10">
+                    <Form
+                        className="w-full md:w-1/2 mt-10"
+                        onSubmit={handleSubmit}
+                    >
                         <Field name="name">
                             <FieldLabel className="text-xl">
                                 <span className="text-xl">Name</span>
@@ -34,6 +104,8 @@ const ContactForm = ({className}: {className?: string}) => {
                                 placeholder="Tony Stark"
                                 required
                                 type="name"
+                                value={formData.name}
+                                onChange={handleChange}
                             />
                             <FieldError>Please enter your name</FieldError>
                         </Field>
@@ -45,6 +117,8 @@ const ContactForm = ({className}: {className?: string}) => {
                                 placeholder="stark@industries.com"
                                 required
                                 type="email"
+                                value={formData.email}
+                                onChange={handleChange}
                             />
                             <FieldError>Please enter your email</FieldError>
                         </Field>
@@ -57,10 +131,25 @@ const ContactForm = ({className}: {className?: string}) => {
                                 required
                                 size="sm"
                                 className="h-48 resize-none"
+                                value={formData.message}
+                                onChange={handleChange}
                             />
                             <FieldError>Please enter some message</FieldError>
                         </Field>
-                        <Button>Submit</Button>
+                        <Button
+                            type="submit"
+                            className="mt-4"
+                            disabled={loading}
+                        >
+                            {loading ? (
+                                <span className="text-muted-foreground">
+                                    <span className="h-4 w-4 border-t border-muted-foreground rounded-[50%] animate-spin"></span>
+                                    Loading
+                                </span>
+                            ) : (
+                                "Submit"
+                            )}
+                        </Button>
                     </Form>
                     <div className="hidden md:flex w-1/2 items-center justify-center rounded-lg overflow-hidden relative mask-[linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent)]">
                         <Map
