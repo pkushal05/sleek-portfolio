@@ -6,35 +6,38 @@ import { useTheme } from "@/context/ThemeContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
-
 const TextScroll = () => {
+    const { theme } = useTheme();
+    const containerRef = useRef<HTMLDivElement>(null);
+    const textRef = useRef<HTMLHeadingElement>(null);
 
-  const { theme } = useTheme();
+    useGSAP(
+        () => {
 
-  const containerRef = useRef<HTMLDivElement>(null);
-  const textRef = useRef<HTMLHeadingElement>(null);
+            if (!containerRef.current || !textRef.current) return;
 
-  useGSAP(() => {
-    gsap.to(textRef.current, {
-      transform: 'translateX(-40%)',
-      duration: 1,
-      ease: "none",
-      scrollTrigger: {
-        trigger: containerRef.current,
-        scroller: 'body',
-        markers: false,
-        start: 'top 0%',
-        end: 'top -200%',
-        scrub: 2,
-        pin: true,
-      }
-    })
-  })
+            gsap.to(textRef.current, {
+                transform: "translateX(-40%)",
+                duration: 1,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    markers: false,
+                    start: "top 0%",
+                    end: "top -200%",
+                    scrub: 2,
+                    pin: true,
+                },
+            });
 
-
+            ScrollTrigger.refresh();
+        },
+        [],
+    );
 
     return (
-        <section id="text-scroll-section"
+        <section
+            id="text-scroll-section"
             ref={containerRef}
             className="w-screen h-screen px-7 overflow-x-hidden select-none mask-[linear-gradient(to_right,transparent,black_30%,black_70%,transparent)]"
         >

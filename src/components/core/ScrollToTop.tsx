@@ -10,7 +10,6 @@ const ScrollToTop = () => {
         if (history.scrollRestoration === "manual") {
             history.scrollRestoration = "auto";
         }
-
         window.scrollTo({
             top: 0,
             left: 0,
