@@ -8,7 +8,7 @@ import { Map } from "@/components/ui/map";
 import { useTheme } from "@/hooks/useTheme";
 import { Tooltip, TooltipTrigger, TooltipPopup } from "@/components/ui/tooltip";
 import { useSendEmail } from "@/hooks/sendEmail";
-import {  useState } from "react";
+import { useEffect, useState } from "react";
 import type { TemplateParams } from "@/hooks/sendEmail";
 import { toastManager } from "@/components/ui/toast";
 
@@ -22,6 +22,34 @@ const ContactForm = ({ className }: { className?: string }) => {
         message: "",
     });
 
+    useEffect(() => {
+        if (error) {
+            toastManager.add({
+                type: "error",
+                description: error,
+                title: "Error",
+                timeout: 3000,
+            });
+        }
+    }, [error]);
+
+    useEffect(() => {
+        if (success) {
+            toastManager.add({
+                type: "success",
+                description: "Your message has been sent successfully!",
+                title: "Success",
+                timeout: 3000,
+            });
+            // eslint-disable-next-line react-hooks/set-state-in-effect
+            setFormData({
+                name: "",
+                email: "",
+                message: "",
+            });
+        }
+    }, [success]);
+
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     ) => {
@@ -31,7 +59,6 @@ const ContactForm = ({ className }: { className?: string }) => {
             ...prevData,
             [name]: value,
         }));
-        console.log(formData)
     };
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -52,29 +79,6 @@ const ContactForm = ({ className }: { className?: string }) => {
             return;
         }
         await sendEmail(formData);
-        if (error) {
-            toastManager.add({
-                type: "error",
-                description: error,
-                title: "Error",
-                timeout: 3000,
-            });
-        }
-
-        if (success) {
-            toastManager.add({
-                type: "success",
-                description: "Your message has been sent successfully!",
-                title: "Success",
-                timeout: 3000,
-            });
-            console.log(success)
-            setFormData({
-                name: "",
-                email: "",
-                message: "",
-            });
-        }
     };
 
     return (
@@ -142,8 +146,8 @@ const ContactForm = ({ className }: { className?: string }) => {
                             disabled={loading}
                         >
                             {loading ? (
-                                <span className="text-muted-foreground">
-                                    <span className="h-4 w-4 border-t border-muted-foreground rounded-[50%] animate-spin"></span>
+                                <span className="flex items-center gap-2">
+                                    <span className="h-4 w-4 border-2 border-muted-foreground border-t-transparent rounded-full animate-spin inline-block"></span>
                                     Loading
                                 </span>
                             ) : (
