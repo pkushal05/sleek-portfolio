@@ -57,12 +57,12 @@ const Movies = () => {
         <div className="max-w-2xl md:max-w-3xl mx-auto px-7 min-h-screen bg-background text-foreground pt-20 relative">
             <div className="w-full h-full flex flex-col gap-15">
                 <div className="w-full mt-15">
-                    <h1 className="text-center text-3xl md:text-5xl font-bold italic font-[DMSerifDisplay]">
+                    <h1 className="text-center text-3xl md:text-5xl font-bold italic font-[DM_Serif_Display]">
                         Movies
                     </h1>
                     <p className="text-center text-muted-foreground text-xl leading-tight md:leading-loose">
                         Some of my all-time{" "}
-                        <span className="font-[DMSerifDisplay] italic">
+                        <span className="font-[DM_Serif_Display] italic">
                             favourites
                         </span>
                     </p>
@@ -93,14 +93,14 @@ const Movies = () => {
                     {currentIndex !== null && (
                         <div className="bg-card border border-border rounded-2xl p-6 flex flex-col gap-3 shadow-xl backdrop-blur-md w-full">
                             <div className="w-full flex justify-between items-center mb-2">
-                                <h1 className="text-xl font-bold text-foreground font-[DMSerifDisplay] italic tracking-tight">
+                                <h1 className="text-xl font-bold text-foreground font-[DM_Serif_Display] italic tracking-tight">
                                     {MOVIES_DATA[currentIndex].title}
                                 </h1>
                                 <span className="text-sm text-muted-foreground">
                                     {MOVIES_DATA[currentIndex].year}
                                 </span>
                             </div>
-                            <em className="text-sm text-foreground/80 font-[DMSerifDisplay] leading-relaxed">
+                            <em className="text-sm text-foreground/80 font-[DM_Serif_Display] leading-relaxed">
                                 “{MOVIES_DATA[currentIndex].dialogue}”
                             </em>
                         </div>

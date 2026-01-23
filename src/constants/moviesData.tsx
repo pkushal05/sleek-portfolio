@@ -24,7 +24,7 @@ export const MOVIES_DATA = [
         title: "Pirates of the Caribbean",
         poster: pirates,
         year: 2003,
-        dialogue: "Savvy?",
+        dialogue: "I've got a jar of dirt, I've got a jar of dirt",
     },
     {
         title: "Inglourious Basterds",

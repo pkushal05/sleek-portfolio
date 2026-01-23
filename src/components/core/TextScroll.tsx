@@ -52,7 +52,7 @@ const TextScroll = () => {
                             theme === "light"
                                 ? "from-[#b92b27] to-[#1565c0]"
                                 : "from-indigo-500 via-purple-500 to-pink-500"
-                        } bg-clip-text text-transparent font-[DMSerifDisplay] italic`}
+                        } bg-clip-text text-transparent font-[DM_Serif_Display] italic`}
                     >
                         web experiences
                     </span>{" "}

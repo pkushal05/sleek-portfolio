@@ -12,10 +12,12 @@ const ProjectDetails = () => {
     return (
         <main className="max-w-2xl md:max-w-3xl mx-auto px-7 min-h-screen bg-background text-foreground pt-20">
             <div className="w-full h-full">
-                <h1 className="text-center mt-15 text-3xl md:text-5xl font-[DMSerifDisplay] italic font-semibold">
+                <h1 className="text-center mt-15 text-3xl md:text-5xl font-[DM_Serif_Display] italic font-semibold">
                     {project?.title}
                 </h1>
-                <p className="text-center text-sm text-muted-foreground mt-2">({project?.tag})</p>
+                <p className="text-center text-sm text-muted-foreground mt-2">
+                    ({project?.tag})
+                </p>
 
                 <div className="w-full mt-18 overflow-hidden relative">
                     <img src={project?.image} alt="" className="rounded-lg" />

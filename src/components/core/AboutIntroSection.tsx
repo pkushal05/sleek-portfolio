@@ -48,7 +48,7 @@ const AboutIntroSection = () => {
                     Check out my{" "}
                     <Link
                         to="/movies"
-                        className={`bg-linear-to-r ${theme === "light" ? "from-blue-600 to-cyan-500" : "from-primary to-purple-500"} bg-clip-text text-transparent hover:underline font-semibold `}
+                        className={`bg-linear-to-r ${theme === "light" ? "from-blue-600 to-cyan-500" : "from-primary to-purple-500"} bg-clip-text text-transparent hover:underline font-semibold font-[DM_Serif_Display] italic`}
                     >
                         Favourite
                     </Link>{" "}

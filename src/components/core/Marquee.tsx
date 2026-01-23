@@ -3,6 +3,18 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 const Marquee = () => {
     useGSAP(() => {
+
+        if (window.innerWidth < 768) {
+            gsap.to(".marquee-wrapper", {
+                xPercent: -200, // use xPercent for smoother performance
+                duration: 10,
+                repeat: -1,
+                ease: "none",
+                overwrite: true, // prevents animations from fighting each other
+            });
+            return;
+        }
+
         const wheel = (e: WheelEvent) => {
             if (e.deltaY > 0) {
                 gsap.to(".marquee-wrapper", {
