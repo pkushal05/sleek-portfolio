@@ -3,13 +3,12 @@ import { Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-// import map from "@/assets/images/map.png";
 import { Map } from "@/components/ui/map";
 import { useTheme } from "@/hooks/useTheme";
 import { Tooltip, TooltipTrigger, TooltipPopup } from "@/components/ui/tooltip";
-import { useSendEmail } from "@/hooks/sendEmail";
+import { useSendEmail } from "@/hooks/useSendEmail";
 import { useEffect, useState } from "react";
-import type { TemplateParams } from "@/hooks/sendEmail";
+import type { TemplateParams } from "@/hooks/useSendEmail";
 import { toastManager } from "@/components/ui/toast";
 
 const ContactForm = ({ className }: { className?: string }) => {

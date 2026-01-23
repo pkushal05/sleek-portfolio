@@ -31,11 +31,17 @@ const Stairs = ({ children }: { children: React.ReactNode }) => {
     const hasAnimated = useRef(false);
     const location = useLocation();
 
-    const validPaths = ["/", "/projects", "/about", "/movies", "/projects/:projectId"];
+    const validPaths = [
+        "/",
+        "/projects",
+        "/about",
+        "/movies",
+        "/projects/:projectId",
+    ];
 
-const notFoundPage = !validPaths.some((path) =>
-    matchPath({ path, end: true }, location.pathname),
-);
+    const notFoundPage = !validPaths.some((path) =>
+        matchPath({ path, end: true }, location.pathname),
+    );
     useEffect(() => {
         const handleResize = () => {
             setNumStairs(window.innerWidth >= 768 ? 5 : 3);
@@ -91,7 +97,10 @@ const notFoundPage = !validPaths.some((path) =>
             ease: "power4.inOut",
         });
 
-        tl.set(stairParentRef.current, { display: "none", transformOrigin: "bottom" });
+        tl.set(stairParentRef.current, {
+            display: "none",
+            transformOrigin: "bottom",
+        });
     }, []);
 
     useGSAP(() => {
@@ -102,53 +111,96 @@ const notFoundPage = !validPaths.some((path) =>
         );
         if (targets.length === 0) return;
 
-        const tl = gsap.timeline();
+        const mm = gsap.matchMedia();
 
-        tl.set(stairParentRef.current, {
-            display: "block",
-            opacity: 1,
-            scaleY: 100,
+        // Mobile Devices
+        mm.add("(max-width: 767px)", () => {
+            if (window.innerWidth < 768) {
+                const tl = gsap.timeline();
+
+                tl.set(stairParentRef.current, {
+                    display: "block",
+                    opacity: 1,
+                    transform: "translateZ(0) scaleY(1)",
+                });
+                tl.set(childRef.current, { opacity: 0 });
+                tl.set(targets, { yPercent: -100, transform: "translateZ(0)" });
+
+                tl.to(targets, {
+                    yPercent: 0,
+                    stagger: 0.05,
+                    ease: "power4.out",
+                });
+
+                tl.to(
+                    targets,
+                    {
+                        yPercent: 100,
+                        stagger: 0.05,
+                        ease: "power4.out",
+                    },
+                    "-=0.02",
+                );
+
+                tl.to(
+                    childRef.current,
+                    {
+                        opacity: 1,
+                    },
+                    "-=0.3",
+                );
+
+                tl.set(stairParentRef.current, { display: "none", opacity: 0 });
+            }
         });
-        tl.set(childRef.current, {
-            opacity: 0,
-        });
 
-        tl.set(targets, { yPercent: -100 });
+        // Desktop Devices
+        mm.add("(min-width: 768px)", () => {
+            const tl = gsap.timeline();
 
+            tl.set(stairParentRef.current, {
+                display: "block",
+                opacity: 1,
+                scaleY: 100,
+            });
+            tl.set(childRef.current, { opacity: 0 });
+            tl.set(targets, { yPercent: -100 });
 
-        tl.to(targets, {
-            yPercent: 0,
-            stagger: 0.05,
-            duration: 0.6,
-            ease: "expo.out",
-        });
-
-        tl.to(
-            targets,
-            {
-                yPercent: 100,
+            tl.to(targets, {
+                yPercent: 0,
                 stagger: 0.05,
                 duration: 0.6,
                 ease: "expo.out",
-            },
-            "-=0.05",
-        );
+            });
 
-        tl.to(
-            childRef.current,
-            {
-                opacity: 1,
-            },
-            "-=0.5",
-        );
-        tl.set(stairParentRef.current, { display: "none", opacity: 0 });
+            tl.to(
+                targets,
+                {
+                    yPercent: 100,
+                    stagger: 0.05,
+                    duration: 0.6,
+                    ease: "expo.out",
+                },
+                "-=0.05",
+            );
+
+            tl.to(
+                childRef.current,
+                {
+                    opacity: 1,
+                },
+                "-=0.5",
+            );
+
+            tl.set(stairParentRef.current, { display: "none", opacity: 0 });
+        });
     }, [theme, location.pathname]);
 
     return (
         <>
             <div
                 ref={stairParentRef}
-                className="fixed w-screen h-screen left-0 top-0 bg-transparent z-999 overflow-hidden will-change-transform"
+                className="fixed w-screen h-screen left-0 top-0 bg-transparent z-999 overflow-hidden will-change-transform backface-hidden"
             >
                 <div className="absolute inset-0 flex items-center justify-center cursor-none pointer-events-none">
                     <h1

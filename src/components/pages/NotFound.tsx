@@ -65,7 +65,7 @@ const NotFound = () => {
             </div>
 
             <div ref={textRef} className="relative z-10 text-center px-4">
-                <h1 className="flex overflow-hidden text-8xl md:text-[12rem] font-bold tracking-tighter leading-none italic uppercase">
+                <h1 className="flex overflow-hidden text-8xl md:text-[12rem] font-bold tracking-tighter leading-none italic uppercase justify-center">
                     {"Lost".split("").map((char, i) => (
                         <span key={i} className="char inline-block">
                             {char}

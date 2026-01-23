@@ -48,8 +48,9 @@ const Navbar = () => {
     return (
         <header className="relative">
             <nav className="fixed inset-x-0 max-w-2xl lg:max-w-3xl mx-auto h-16 flex items-center justify-between px-7 pt-5 rounded-b-xl backdrop-blur-sm z-50">
-                <Logo />
-
+                <div onClick={() => setIsOpen(false)}>
+                    <Logo />
+                </div>
                 <div className="hidden lg:flex space-x-6 items-center">
                     <h4 className="text-2xl font-medium hover:underline hover:text-muted-foreground">
                         <Link to="/projects">Projects</Link>
