@@ -16,14 +16,17 @@ const Hero = () => {
     const { theme } = useTheme();
 
   return (
-      <section id="hero-section" className="max-w-2xl lg:max-w-3xl mx-auto px-7 pt-36 md:pt-44">
+      <section
+          id="hero-section"
+          className="max-w-2xl lg:max-w-3xl mx-auto px-7 pt-36 md:pt-44"
+      >
           <div className="h-full w-full">
               <div className="flex flex-col gap-y-3">
                   <div className="relative h-28 w-28 rounded-full ">
                       <img
                           src={kushal}
                           alt=""
-                          className={`h-full w-full object-cover rounded-full ${theme === 'dark' ? "saturate-0" : "" }`}
+                          className={`h-full w-full object-cover rounded-full ${theme === "dark" ? "saturate-0" : ""}`}
                       />
 
                       <Tooltip>
@@ -334,9 +337,12 @@ const Hero = () => {
                   <Button
                       variant="default"
                       className="py-3 px-2 md:py-4 md:px-3 md:text-lg text-sm"
-                  >
-                      <ReceiptText /> Resume
-                  </Button>
+                      render={
+                          <Link to={"/resume"}>
+                              <ReceiptText /> Resume
+                          </Link>
+                      }
+                  ></Button>
                   <Button
                       variant="secondary"
                       className="py-3 px-2 md:py-4 md:px-3 md:text-lg text-sm"

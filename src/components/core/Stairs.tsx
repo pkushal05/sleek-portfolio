@@ -37,6 +37,7 @@ const Stairs = ({ children }: { children: React.ReactNode }) => {
         "/about",
         "/movies",
         "/projects/:projectId",
+        "/resume",
     ];
 
     const notFoundPage = !validPaths.some((path) =>

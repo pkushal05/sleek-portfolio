@@ -11,23 +11,21 @@ type QuoteData = {
 };
 
 const About = () => {
-    const url = "https://api.quotable.io/random?tags=motivational";
+    const url = "https://corsproxy.io/?https://zenquotes.io/api/random";
 
     const [quote, setQuote] = useState<QuoteData | null>(null);
 
     useEffect(() => {
         const fetchQuote = async () => {
             try {
-                const response = await fetch(url);
+                const response = await fetch(`${url}&nocache=${Math.random()}`);
                 const data = await response.json();
                 if (!response.ok) {
                     throw new Error(data.message || "Failed to fetch quote");
                 }
-                const quote: QuoteData = {
-                    content: data.content,
-                    author: data.author,
-                };
-                setQuote(quote);
+                if (data) {
+                    setQuote({ content: data[0].q, author: data[0].a });
+                }
             } catch (error) {
                 console.error("Error fetching quote:", error);
             }

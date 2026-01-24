@@ -12,6 +12,7 @@ const Projects = lazy(() => import("@/components/pages/Projects"));
 const About = lazy(() => import("@/components/pages/About"));
 const ProjectDetails = lazy(() => import("@/components/pages/ProjectDetails"));
 const Movies = lazy(() => import("@/components/pages/Movies"));
+const Resume = lazy(() => import("@/components/pages/Resume"));
 
 const App = () => {
     return (
@@ -28,6 +29,7 @@ const App = () => {
                         element={<ProjectDetails />}
                     />
                     <Route path="/movies" element={<Movies />} />
+                    <Route path="/resume" element={<Resume />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </Suspense>
