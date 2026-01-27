@@ -140,6 +140,7 @@ const PROJECTS = [
             "Ensuring accessibility compliance (AODA) while maintaining visual appeal",
             "Optimizing bundle size by properly tree-shaking unused Tailwind classes",
         ],
+        githubLink: "https://github.com/pkushal05/sleek-portfolio",
         links: [
             {
                 href: "http://kushalpatel.me",
