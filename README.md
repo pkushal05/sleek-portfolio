@@ -1,6 +1,6 @@
 # Portfolio Website
 
-A modern, interactive portfolio website built with React, TypeScript, and GSAP to showcase my projects and skills for co-op recruiting.
+A modern, interactive portfolio website built with React, TypeScript, and GSAP to showcase my projects, skills and interest.
 
 ![Portfolio Preview](https://kushalpatel.me/og-image.jpg) <!-- Add your screenshot -->
 
@@ -76,3 +76,4 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 Built with ❤️ by Kushal Patel
+
