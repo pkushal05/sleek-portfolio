@@ -10,18 +10,18 @@ const TestimonialCard = ({avatar, name, role, content}: TestimonialDataType) => 
                         "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix"
                     }
                     alt={name}
-                    className="w-10 h-10 rounded-full border border-border object-cover"
+                    className="w-7 h-7 md:w-10 md:h-10 rounded-full border border-border object-cover"
                 />
                 <div>
-                    <h4 className="font-bold text-foreground text-lg leading-tight">
+                    <h4 className="font-bold text-foreground md:text-lg leading-tight">
                         {name}
                     </h4>
-                    <p className="text-muted-foreground text-sm">{role}</p>
+                    <p className="text-muted-foreground text-xs md:text-sm">{role}</p>
                 </div>
             </div>
 
             {/* Testimonial Content */}
-            <p className="text-muted-foreground leading-relaxed italic">
+            <p className="text-muted-foreground leading-relaxed italic text-sm md:text-base">
                 &ldquo;{content}&rdquo;
             </p>
         </div>
