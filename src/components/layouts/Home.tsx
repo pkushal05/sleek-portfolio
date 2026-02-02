@@ -2,6 +2,7 @@ import Hero from "@/components/core/Hero";
 import ProjectsSection from "@/components/core/ProjectsSection";
 import TextScroll from "@/components/core/TextScroll";
 import ContactForm from "@/components/core/ContactForm";
+import TestimonialSection from "@/components/core/TestimonialSection";
 import { useEffect, useState } from "react";
 
 type QuoteData = {
@@ -36,6 +37,7 @@ const Home = () => {
             <Hero />
             <ProjectsSection />
             <TextScroll />
+            <TestimonialSection />
             <ContactForm className={"px-7"} />
             {quote && (
                 <div className="w-full mt-20 px-7">
