@@ -127,7 +127,7 @@ const TestimonialSection = () => {
                             strokeWidth={1.5}
                             fill="currentColor"
                         />
-                        <p className="mb-6 text-base leading-relaxed text-foreground">
+                        <p className="mb-6 text-[10px] md:text-base leading-relaxed text-foreground">
                             {active.content}
                         </p>
 
