@@ -9,7 +9,7 @@ const TestimonialCard = ({
     open,
 }: TestimonialDataType) => {
     return (
-        <div className="bg-card border-border border-2 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow min-w-80 md:min-w-96 max-h- flex flex-col justify-between gap-y-10">
+        <div className="bg-card border-border border-2 rounded-2xl p-6 shadow-sm hover:shadow-lg transition-shadow min-w-80 md:min-w-96 max-h- flex flex-col justify-between gap-y-10">
             <div>
                 <Quote
                     className="mb-4 h-6 w-6 text-primary"

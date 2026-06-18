@@ -11,29 +11,25 @@ const TextScroll = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const textRef = useRef<HTMLHeadingElement>(null);
 
-    useGSAP(
-        () => {
+    useGSAP(() => {
+        if (!containerRef.current || !textRef.current) return;
 
-            if (!containerRef.current || !textRef.current) return;
+        gsap.to(textRef.current, {
+            transform: "translateX(-40%)",
+            duration: 1,
+            ease: "none",
+            scrollTrigger: {
+                trigger: containerRef.current,
+                markers: false,
+                start: "top 0%",
+                end: "top -200%",
+                scrub: 2,
+                pin: true,
+            },
+        });
 
-            gsap.to(textRef.current, {
-                transform: "translateX(-40%)",
-                duration: 1,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    markers: false,
-                    start: "top 0%",
-                    end: "top -200%",
-                    scrub: 2,
-                    pin: true,
-                },
-            });
-
-            ScrollTrigger.refresh();
-        },
-        [],
-    );
+        ScrollTrigger.refresh();
+    }, []);
 
     return (
         <section
